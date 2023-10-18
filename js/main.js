@@ -9,24 +9,24 @@ let temp;
 let celsiusFahrenheit = celsius => (celsius * 1.8) + 32;
 let fahrenheitCelsius = fahrenheit => (fahrenheit - 32) / 1.8;
 
-while (opc != 'esc'){
+while (opc != `esc`){
     switch (opc) {
-        case '1':
-            temp = Number(prompt('Ingrese la temperatura en °C:'));
-            if(isNaN(temp)){
+        case `1`:
+            temp = Number(prompt(`Ingrese la temperatura en °C:`));
+            while(isNaN(temp)) {
                 alert(`El dato ingresado no es un numero. Vuelva a intentar`);
-            }else {
-                alert(`La conversion de ${temp}°C a °F es: ` + celsiusFahrenheit(temp).toFixed(1) + `°F`);
+                temp = Number(prompt(`Vuelva a ingresar la temperatura en °C:`));
             }
+            alert(`La conversion de ${temp}°C a °F es: ` + celsiusFahrenheit(temp).toFixed(1) + `°F`);
             break;
 
-        case '2':
-            temp = Number(prompt('Ingrese la temperatura en °F:'));
-            if(isNaN(temp)) {
+        case `2`:
+            temp = Number(prompt(`Ingrese la temperatura en °F:`));
+            while(isNaN(temp)) {
                 alert(`El dato ingresado no es un numero. Vuelva a intentar`);
-            }else {
-                alert(`La conversion de ${temp}°F a °C es: ` + fahrenheitCelsius(temp).toFixed(1) + `°C`);
+                temp = Number(prompt(`Vuelva a ingresar la temperatura en °F:`));
             }
+            alert(`La conversion de ${temp}°F a °C es: ` + fahrenheitCelsius(temp).toFixed(1) + `°C`);
             break;
         
         default:
