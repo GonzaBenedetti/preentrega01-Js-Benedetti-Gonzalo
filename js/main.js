@@ -13,12 +13,20 @@ while (opc != 'esc'){
     switch (opc) {
         case '1':
             temp = Number(prompt('Ingrese la temperatura en °C:'));
-            alert(`La conversion de ${temp}°C a °F es: ` + celsiusFahrenheit(temp).toFixed(1) + `°F`);
+            if(isNaN(temp)){
+                alert(`El dato ingresado no es un numero. Vuelva a intentar`);
+            }else {
+                alert(`La conversion de ${temp}°C a °F es: ` + celsiusFahrenheit(temp).toFixed(1) + `°F`);
+            }
             break;
 
         case '2':
             temp = Number(prompt('Ingrese la temperatura en °F:'));
-            alert(`La conversion de ${temp}°F a °C es: ` + fahrenheitCelsius(temp).toFixed(1) + `°C`);
+            if(isNaN(temp)) {
+                alert(`El dato ingresado no es un numero. Vuelva a intentar`);
+            }else {
+                alert(`La conversion de ${temp}°F a °C es: ` + fahrenheitCelsius(temp).toFixed(1) + `°C`);
+            }
             break;
         
         default:
