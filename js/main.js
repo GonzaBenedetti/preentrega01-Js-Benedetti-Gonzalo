@@ -1,13 +1,16 @@
-let opc = prompt(`Ingrese una opción para realizar la operacion que desea:
+let temp;
+let opc;
+const quest = () => { 
+    opc = prompt(`Ingrese una opción para realizar la operacion que desea:
     1 - De Celsius a Fahrenheit.
     2 - De Fahrenheit a Celsius.
     ESC - Para salir. `);
+    opc = opc.toLowerCase();
+}
+const celsiusFahrenheit = celsius => (celsius * 1.8) + 32;
+const fahrenheitCelsius = fahrenheit => (fahrenheit - 32) / 1.8;
 
-opc = opc.toLowerCase();
-let temp;
-
-let celsiusFahrenheit = celsius => (celsius * 1.8) + 32;
-let fahrenheitCelsius = fahrenheit => (fahrenheit - 32) / 1.8;
+quest ();
 
 while (opc != `esc`){
     switch (opc) {
@@ -33,9 +36,5 @@ while (opc != `esc`){
             alert(`La opción ingresada no es valida. Vuelva a intentar.`);
             break;
     }
-    opc = prompt(`Ingrese otra opción para realizar la operacion que desea:
-    1 - De Celsius a Fahrenheit.
-    2 - De Fahrenheit a Celsius.
-    ESC - Para salir. `);
-    opc = opc.toLowerCase();
+    quest ();
 }
